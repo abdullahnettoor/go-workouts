@@ -19,6 +19,20 @@ package main
 
 import "fmt"
 
+type Rectangle struct {
+	x, y float32
+}
+
+func findArea(rec Rectangle) float32 {
+	return rec.x * rec.y
+}
+
 func main() {
+
+	var rec = Rectangle{5.5, 6}
+	fmt.Println("Length :", rec.x, "Breadth :", rec.y, "\nArea =", findArea(rec))
+
+	rec.x, rec.y = rec.x*2, rec.y*2
+	fmt.Println("Length :", rec.x, "Breadth :", rec.y, "\nArea =", findArea(rec))
 
 }
