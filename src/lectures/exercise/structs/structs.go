@@ -20,19 +20,48 @@ package main
 import "fmt"
 
 type Rectangle struct {
+	a, b Cordinate
+}
+
+type Cordinate struct {
 	x, y float32
 }
 
+func width(rec Rectangle) float32 {
+	return (rec.b.x - rec.a.x)
+}
+
+func length(rec Rectangle) float32 {
+	return (rec.a.y - rec.b.y)
+}
+
 func findArea(rec Rectangle) float32 {
-	return rec.x * rec.y
+	return length(rec) * width(rec)
+}
+
+func findPerimeter(rec Rectangle) float32 {
+	return 2 * (length(rec) + width(rec))
+}
+
+func divider() {
+	fmt.Println("----------------------------")
 }
 
 func main() {
 
-	var rec = Rectangle{5.5, 6}
-	fmt.Println("Length :", rec.x, "Breadth :", rec.y, "\nArea =", findArea(rec))
+	var rec = Rectangle{
+		a: Cordinate{0, 7},
+		b: Cordinate{5, 0},
+	}
 
-	rec.x, rec.y = rec.x*2, rec.y*2
-	fmt.Println("Length :", rec.x, "Breadth :", rec.y, "\nArea =", findArea(rec))
+	divider()
+	fmt.Println("Length :", length(rec), "Breadth :", width(rec), "\nArea =", findArea(rec), "\nPerimeter =", findPerimeter(rec))
+	divider()
+
+	rec.a.y *= 2
+	rec.b.x *= 2
+
+	fmt.Println("Length :", length(rec), "Breadth :", width(rec), "\nArea =", findArea(rec), "\nPerimeter =", findPerimeter(rec))
+	divider()
 
 }
