@@ -28,7 +28,7 @@ func showAssemblyLine(title string, line []Part) {
 }
 
 func main() {
-	assemblyLine := make([]Part)
+	assemblyLine := make([]Part, 3)
 
 	assemblyLine[0] = "Screws"
 	assemblyLine[1] = "Nuts"
