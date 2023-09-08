@@ -38,15 +38,15 @@ type LiftPicker interface {
 	PickLift() Lift
 }
 
-func (m Motorcycle) Name() string {
-	return fmt.Sprintf("Motorcycle : %v", string(m))
-}
-func (m Car) Name() string {
-	return fmt.Sprintf("Car : %v", string(m))
-}
-func (m Truck) Name() string {
-	return fmt.Sprintf("Truck : %v", string(m))
-}
+// func (m Motorcycle) Name() string {
+// 	return fmt.Sprintf("Motorcycle : %v", string(m))
+// }
+// func (m Car) Name() string {
+// 	return fmt.Sprintf("Car : %v", string(m))
+// }
+// func (m Truck) Name() string {
+// 	return fmt.Sprintf("Truck : %v", string(m))
+// }
 
 func (m Motorcycle) PickLift() Lift {
 	return SmallLift
@@ -58,6 +58,10 @@ func (m Truck) PickLift() Lift {
 	return LargeLift
 }
 
+func (c Car) ShowTopSpeed(speed int) {
+	fmt.Println("The Speed of", c, "is", speed)
+}
+
 func sendToLift(l LiftPicker) {
 	switch l.PickLift() {
 	case SmallLift:
@@ -66,7 +70,6 @@ func sendToLift(l LiftPicker) {
 		fmt.Println("Send to Standard Lift, It's", l)
 	case LargeLift:
 		fmt.Println("Send to Large Lift, It's", l)
-
 	}
 }
 
@@ -74,6 +77,9 @@ func main() {
 	car := Car("Mercedez")
 	truck := Truck("Bharath Benz")
 	bike := Motorcycle("Ninja")
+
+	car.ShowTopSpeed(120)
+
 	sendToLift(car)
 	sendToLift(truck)
 	sendToLift(bike)
