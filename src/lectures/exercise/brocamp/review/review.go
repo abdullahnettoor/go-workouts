@@ -6,12 +6,11 @@ func getSum() int {
 	var count int
 	var sum int
 	fmt.Printf("Enter Number Count: ")
-	fmt.Scanf("%d", count)
+	fmt.Scanf("%d", &count)
 	var n = make([]int, count)
 	fmt.Println("Enter numbers")
 	for i := 0; i < count; i++ {
 		fmt.Scanf("%d", &n[i])
-
 		sum += n[i]
 	}
 
@@ -28,18 +27,20 @@ func getSumVariadic(n ...int) (sum int) {
 func main() {
 
 	sum := getSum()
-	fmt.Printf("Sum is %d", sum)
+	fmt.Printf("Sum is %d\n", sum)
+	fmt.Println()
 
 	var count int
 	fmt.Printf("Enter Number Count: ")
-	fmt.Scanf("%d", count)
+	fmt.Scanf("%d", &count)
 	var n = make([]int, count)
 	fmt.Println("Enter numbers")
 	for i := 0; i < count; i++ {
 		fmt.Scanf("%d", &n[i])
 	}
 	sum2 := getSumVariadic(n...)
-	fmt.Printf("Sum is %d", sum2)
+	fmt.Printf("Sum is %d\n", sum2)
+	fmt.Println()
 
 	func() {
 		fmt.Println("Hello, I'm Anonymus")
