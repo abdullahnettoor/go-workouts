@@ -34,6 +34,7 @@ type Lift int
 type Motorcycle string
 type Car string
 type Truck string
+
 type LiftPicker interface {
 	PickLift() Lift
 }
@@ -79,6 +80,10 @@ func main() {
 	bike := Motorcycle("Ninja")
 
 	car.ShowTopSpeed(120)
+
+	car2 := Car("Audi")
+
+	car2.ShowTopSpeed(220)
 
 	sendToLift(car)
 	sendToLift(truck)
