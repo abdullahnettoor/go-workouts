@@ -14,9 +14,11 @@
 
 package main
 
-import "fmt"
-import "time"
-import "math/rand"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 type Job int
 
@@ -38,4 +40,5 @@ func makeJobs() []Job {
 func main() {
 	rand.Seed(time.Now().UnixNano())
 	jobs := makeJobs()
+	fmt.Println(jobs)
 }

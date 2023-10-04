@@ -5,7 +5,7 @@ import (
 	// "time"
 )
 
-func main() {
+func Something() {
 
 	c := make(chan string)
 
@@ -20,4 +20,5 @@ func main() {
 	fmt.Println("Go routine is on the way")
 	v := <-c
 	fmt.Println(v)
+
 }

@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func getSum() int {
 	var count int
@@ -13,7 +16,6 @@ func getSum() int {
 		fmt.Scanf("%d", &n[i])
 		sum += n[i]
 	}
-
 	return sum
 }
 
@@ -26,10 +28,12 @@ func getSumVariadic(n ...int) (sum int) {
 
 func main() {
 
+	// Get sum
 	sum := getSum()
 	fmt.Printf("Sum is %d\n", sum)
 	fmt.Println()
 
+	// Get Sum Variadic
 	var count int
 	fmt.Printf("Enter Number Count: ")
 	fmt.Scanf("%d", &count)
@@ -42,8 +46,31 @@ func main() {
 	fmt.Printf("Sum is %d\n", sum2)
 	fmt.Println()
 
+	// Anonymous function
 	func() {
 		fmt.Println("Hello, I'm Anonymus")
 	}()
 
+	// Interface Examples
+	a := Name("Arya")
+
+	a.Greet() // Prints Goodmorning Arya
+
+	a.ToUpperCase().Greet() // Prints Goodmorning ARYA
+
+}
+
+type Hello interface {
+	Greet()
+}
+
+type Name string
+
+func (s Name) Greet() {
+	fmt.Println("Goodmorning", s)
+}
+
+func (s Name) ToUpperCase() Name {
+	s = Name(strings.ToUpper(string(s)))
+	return s
 }
