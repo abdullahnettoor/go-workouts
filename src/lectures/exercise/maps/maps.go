@@ -67,7 +67,7 @@ func main() {
 	serverStatus["aiur"] = Offline
 	serverInfo("Updated Server Status", serverStatus)
 
-	for server, _ := range serverStatus {
+	for server := range serverStatus {
 		serverStatus[server] = Maintenance
 	}
 	serverInfo("Updated Server Status", serverStatus)
